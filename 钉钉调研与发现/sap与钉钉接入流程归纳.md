@@ -145,6 +145,8 @@
 
 ### 4.获取token
 
+1.旧版获取token方式
+
 AccessToken是企业访问钉钉开放平台接口的全局唯一票据，调用接口时需携带AccessToken。
 
 AccessToken需要用CorpID和CorpSecret来换取，不同的CorpSecret会返回不同的AccessToken。正常情况下AccessToken有效期为7200秒，有效期内重复获取返回相同结果，并自动续期。
@@ -155,6 +157,23 @@ AccessToken需要用CorpID和CorpSecret来换取，不同的CorpSecret会返回�
 | ---------- | -------- | ---- | ------------------ |
 | corpsecret | String   | 是   | 企业应用的凭证密钥 |
 | corpid     | String   | 是   | 企业Id             |
+
+2.新版获取token方式
+
+企业创建完自建应用之后，自动分配Appkey和Appsecret，并设置公网出口白名单ip
+
+
+
+![1557114805450](assets/1557114805450.png)
+
+**请求方式**：GET（HTTPS）
+**请求地址**：`https://oapi.dingtalk.com/gettoken?appkey=key&appsecret=secret`
+**参数说明**：
+
+| 参数      | 参数类型 | 必须 | 说明              |
+| --------- | -------- | ---- | ----------------- |
+| appkey    | String   | 是   | 应用的唯一标识key |
+| appsecret | String   | 是   | 应用的密钥        |
 
 ### 5.主数据同步
 
